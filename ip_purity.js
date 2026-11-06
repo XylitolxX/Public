@@ -1,8 +1,10 @@
 /*
- * Surge 面板：IP 纯净度（直连 + 节点，一个面板同时显示）
+ * Surge 面板：IP 纯净度（直连 / 节点）
  * 数据来源：my.ippure.com
- * 参数：Proxy=策略组或节点（默认 Proxy，填 DIRECT 则只显示直连）
+ * 参数：Proxy=策略组或节点（默认 Proxy，留空则按分流规则）
  *       MarkIP=是否打码 true/false（默认 true）
+ *       Mode=direct 只测直连 | proxy 只测节点 | both 两个都显示在同一面板（默认 both）
+ * 兼容花体字策略组名：会自动匹配 Surge 里看起来相同的策略组
  */
 
 const parseArgs = (s) =>
@@ -19,8 +21,29 @@ const parseArgs = (s) =>
   );
 
 const args = typeof $argument !== "undefined" ? parseArgs($argument) : {};
-const proxy = (args.Proxy || "").trim() || "Proxy";
+const proxyArg = (args.Proxy ?? "Proxy").trim();
 const markIP = String(args.MarkIP ?? "true").toLowerCase() !== "false";
+const mode = String(args.Mode ?? "both").toLowerCase();
+
+// 花体字（数学字母等）转成普通字母后再比较
+const norm = (s) => String(s).normalize("NFKC").trim().toLowerCase();
+
+// 在 Surge 的策略组里找到和输入"看起来一样"的真实名字
+const resolvePolicy = (name) => {
+  if (!name) return undefined;
+  if (name.toUpperCase() === "DIRECT") return "DIRECT";
+  try {
+    const info = $surge.selectGroupDetails();
+    const pool = new Set();
+    const add = (o) => o && typeof o === "object" && Object.keys(o).forEach((k) => pool.add(k));
+    add(info && info.decisions);
+    add(info && info.groups);
+    add(info);
+    for (const k of pool) if (k === name) return k;
+    for (const k of pool) if (norm(k) === norm(name)) return k;
+  } catch (e) {}
+  return name;
+};
 
 const flag = (cc) =>
   cc && cc.length === 2
@@ -28,12 +51,11 @@ const flag = (cc) =>
     : "🏳️";
 
 const get = (url, policy) =>
-  new Promise((resolve, reject) =>
-    $httpClient.get(
-      { url, timeout: 8, policy, headers: { "User-Agent": "Mozilla/5.0" } },
-      (err, resp, data) => (err ? reject(err) : resolve(data))
-    )
-  );
+  new Promise((resolve, reject) => {
+    const opts = { url, timeout: 8, headers: { "User-Agent": "Mozilla/5.0" } };
+    if (policy) opts.policy = policy;
+    $httpClient.get(opts, (err, resp, data) => (err ? reject(err) : resolve(data)));
+  });
 
 // 58.246.12.121 -> 58.246.•••.121
 const mask = (ip) => {
@@ -55,7 +77,18 @@ const risk = (s) => {
 };
 
 const query = async (policy) => {
-  const d = JSON.parse(await get("https://my.ippure.com/v1/info", policy));
+  let raw;
+  try {
+    raw = await get("https://my.ippure.com/v1/info", policy);
+  } catch (e) {
+    // 策略不存在时，退回按分流规则请求
+    if (policy && policy !== "DIRECT" && /exist/i.test(String((e && e.message) || e))) {
+      raw = await get("https://my.ippure.com/v1/info", undefined);
+    } else {
+      throw e;
+    }
+  }
+  const d = JSON.parse(raw);
   const score = Number(d.fraudScore ?? 0);
   const r = risk(score);
   const type = d.isBroadcast
@@ -80,32 +113,42 @@ const query = async (policy) => {
 };
 
 (async () => {
+  const proxyPolicy = resolvePolicy(proxyArg);
+  const onlyDirect = proxyPolicy === "DIRECT";
+
+  const directT = { label: "直连", policy: "DIRECT" };
+  const proxyT = {
+    label: proxyPolicy ? `节点 · ${proxyArg}` : "节点 · 按分流规则",
+    policy: proxyPolicy,
+  };
   const targets =
-    proxy.toUpperCase() === "DIRECT"
-      ? [{ label: "直连", policy: "DIRECT" }]
-      : [
-          { label: "直连", policy: "DIRECT" },
-          { label: `节点 · ${proxy}`, policy: proxy },
-        ];
+    mode === "direct" || onlyDirect
+      ? [directT]
+      : mode === "proxy"
+      ? [proxyT]
+      : [directT, proxyT];
+
+  const single = targets.length === 1;
+  const title = single ? `IP 纯净度 · ${targets[0].label}` : "IP 纯净度";
 
   const results = await Promise.allSettled(targets.map((t) => query(t.policy)));
 
   const blocks = [];
   let worst = null;
   results.forEach((res, i) => {
-    const head = `【${targets[i].label}】`;
+    const head = single ? [] : [`【${targets[i].label}】`];
     if (res.status === "fulfilled") {
-      blocks.push([head, ...res.value.lines].join("\n"));
+      blocks.push([...head, ...res.value.lines].join("\n"));
       if (!worst || res.value.score > worst.score) worst = res.value;
     } else {
       const msg = (res.reason && res.reason.message) || res.reason;
-      blocks.push(`${head}\n🌫️ 检测失败：${msg}`);
+      blocks.push([...head, `🌫️ 检测失败：${msg}`].join("\n"));
     }
   });
 
   if (!worst) {
     $done({
-      title: "IP 纯净度",
+      title,
       content: blocks.join("\n\n"),
       icon: "xmark.circle",
       "icon-color": "#FF3B30",
@@ -113,9 +156,9 @@ const query = async (policy) => {
     return;
   }
 
-  // 图标和颜色跟随风险更高的那一个
+  // 图标和颜色跟随风险更高的那个（单面板时就是它自己的）
   $done({
-    title: "IP 纯净度",
+    title,
     content: blocks.join("\n\n"),
     icon: worst.r.icon,
     "icon-color": worst.r.color,
