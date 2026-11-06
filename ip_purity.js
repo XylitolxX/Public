@@ -30,7 +30,7 @@ const risk = (s) => {
   if (s < 20) return { dot: "☀️", color: "#34C759", icon: "checkmark.seal" };
   if (s < 40) return { dot: "🌤️", color: "#34C759", icon: "checkmark.shield" };
   if (s < 70) return { dot: "⛅", color: "#FFCC00", icon: "exclamationmark.triangle" };
-  if (s < 85) return { dot: "🌦️", color: "#FF9500", icon: "exclamationmark.shield" };
+  if (s < 85) return { dot: "🌦️", color: "#FF9500", icon: "exclamationmark.triangle" };
   return { dot: "⛈️", color: "#FF3B30", icon: "xmark.shield" };
 };
 
