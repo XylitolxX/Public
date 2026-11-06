@@ -9,4 +9,4 @@
 
 [Script]
 # > 𝐓𝐫𝐚𝐟𝐟𝐢𝐜
-TrafficStatistics = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/trafficstatistics.js, argument=icon=bonjour&color=#007aff
+TrafficStatistics = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/Traffic.js, argument=icon=bonjour&color=#007aff
