@@ -16,16 +16,7 @@ const get = (url) =>
     )
   );
 
-// 58.246.12.121 -> 58.246.•••.121
-const mask = (ip) => {
-  if (ip.includes(".")) {
-    const p = ip.split(".");
-    return p.length === 4 ? `${p[0]}.${p[1]}.•••.${p[3]}` : ip;
-  }
-  const p = ip.split(":");
-  return p.length > 4 ? `${p[0]}:${p[1]}:•••:${p[p.length - 1]}` : ip;
-};
-
+// 风险分档：天气 emoji + SF Symbols 图标 + 颜色
 const risk = (s) => {
   if (s < 20) return { dot: "☀️", color: "#34C759", icon: "checkmark.seal" };
   if (s < 40) return { dot: "🌤️", color: "#34C759", icon: "checkmark.shield" };
