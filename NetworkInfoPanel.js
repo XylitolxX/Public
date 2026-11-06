@@ -14,6 +14,14 @@
  * response: { status, headers, data }
  */
 class httpMethod {
+  /**
+   * 回调函数
+   * @param {*} resolve 
+   * @param {*} reject 
+   * @param {*} error 
+   * @param {*} response 
+   * @param {*} data 
+   */
   static _httpRequestCallback(resolve, reject, error, response, data) {
     if (error) {
       reject(error);
@@ -22,6 +30,11 @@ class httpMethod {
     }
   }
 
+  /**
+   * HTTP GET
+   * @param {Object} option 选项
+   * @returns 
+   */
   static get(option = {}) {
     return new Promise((resolve, reject) => {
       $httpClient.get(option, (error, response, data) => {
@@ -30,6 +43,11 @@ class httpMethod {
     });
   }
 
+  /**
+   * HTTP POST
+   * @param {Object} option 选项
+   * @returns 
+   */
   static post(option = {}) {
     return new Promise((resolve, reject) => {
       $httpClient.post(option, (error, response, data) => {
@@ -139,9 +157,7 @@ function getCellularInfo() {
     const carrierId = $network['cellular-data'].carrier;
     const radio = $network['cellular-data'].radio;
     if ($network.wifi?.ssid == null && radio) {
-      cellularInfo = carrierNames[carrierId] ?
-        `${carrierNames[carrierId]} | ${radioGeneration[radio]} - ${radio} ` :
-        `蜂窝数据| ${radioGeneration[radio]} - ${radio}`;
+      cellularInfo = `${radioGeneration[radio]} - ${radio}`;
     }
   }
   return cellularInfo;
