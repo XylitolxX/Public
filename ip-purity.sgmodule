@@ -6,7 +6,7 @@
 #!system=ios
 
 [Panel]
-𝐈𝐏 𝐏𝐮𝐫𝐢𝐭𝐲 = script-name=𝐈𝐏 𝐏𝐮𝐫𝐢𝐭𝐲, title=𝐈𝐏 𝐏𝐮𝐫𝐢𝐭𝐲, content=刷新中…, style=info, update-interval=300
+𝐈𝐏 𝐏𝐮𝐫𝐢𝐭𝐲 = script-name=IP-Pure, title=𝐈𝐏 𝐏𝐮𝐫𝐢𝐭𝐲, content=刷新中…, style=info, update-interval=300
 
 [Script]
-𝐈𝐏 𝐏𝐮𝐫𝐢𝐭𝐲 = type=generic, timeout=10, argument=Proxy={{{Proxy}}}&MarkIP={{{MarkIP}}}, script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/ip_purity.js?v=3, script-update-interval=3600
+IP-Pure = type=generic, timeout=10, argument=Proxy={{{Proxy}}}&MarkIP={{{MarkIP}}}, script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/ip_purity.js?v=3, script-update-interval=3600
