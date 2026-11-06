@@ -1,11 +1,10 @@
-
 /*
  * 由@LucaLin233编写
  * 原脚本地址：https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/stream-all.js
  * 由@Rabbit-Spec修改
  * 更新日期：2024.06.01
  * 版本：3.1
- * 面板名称：𝐒𝐭𝐫𝐞𝐚𝐦 𝐂𝐡𝐞𝐜𝐤
+ * 面板名称：𝐒𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠 𝐔𝐧𝐥𝐨𝐜𝐤 𝐃𝐞𝐭𝐞𝐜𝐭𝐢𝐨𝐧
  */
 
 const REQUEST_HEADERS = {
@@ -29,7 +28,7 @@ const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (
 
 ;(async () => {
     let panel_result = {
-      title: '𝐒𝐭𝐫𝐞𝐚𝐦 𝐂𝐡𝐞𝐜𝐤',
+      title: '𝐒𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠 𝐔𝐧𝐥𝐨𝐜𝐤 𝐃𝐞𝐭𝐞𝐜𝐭𝐢𝐨𝐧',
       content: '',
       icon: 'play.tv.fill',
       'icon-color': '#FF2D55',
