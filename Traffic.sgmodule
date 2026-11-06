@@ -1,12 +1,12 @@
 
-#!name=𝐓𝐫𝐚𝐟𝐟𝐢𝐜
+#!name=𝐓𝐫𝐚𝐟𝐟𝐢𝐜 𝐒𝐭𝐚𝐭𝐢𝐬𝐭𝐢𝐜𝐬
 #!desc=Traffic Statistics
 #!system=ios
 
 [Panel]
-# > 𝐓𝐫𝐚𝐟𝐟𝐢𝐜
-𝐓𝐫𝐚𝐟𝐟𝐢𝐜 = script-name=TrafficStatistics, update-interval=1
+# > 𝐓𝐫𝐚𝐟𝐟𝐢𝐜 𝐒𝐭𝐚𝐭𝐢𝐬𝐭𝐢𝐜𝐬
+𝐓𝐫𝐚𝐟𝐟𝐢𝐜 𝐒𝐭𝐚𝐭𝐢𝐬𝐭𝐢𝐜𝐬 = script-name=TrafficStatistics, update-interval=1
 
 [Script]
-# > 𝐓𝐫𝐚𝐟𝐟𝐢𝐜
-TrafficStatistics = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/Traffic.js?v=1, argument=icon=bonjour&color=#007aff
+# > 𝐓𝐫𝐚𝐟𝐟𝐢𝐜 𝐒𝐭𝐚𝐭𝐢𝐬𝐭𝐢𝐜𝐬
+TrafficStatistics = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/Traffic.js?v=2, argument=icon=bonjour&color=#007aff
