@@ -1,11 +1,11 @@
 
 /*
- * Surge Panel: 𝐈𝐏 𝐂𝐥𝐞𝐚𝐧𝐥𝐢𝐧𝐞𝐬𝐬 𝐂𝐡𝐞𝐜𝐤
+ * Surge Panel: 𝐈𝐏 𝐂𝐥𝐞𝐚𝐧 𝐂𝐡𝐞𝐜𝐤
  * 数据来源：my.ippure.com
  * 参数：Proxy=策略组或节点（默认 DIRECT）；MarkIP=是否打码 true/false（默认 true）
  */
 
-const PANEL_TITLE = "𝐈𝐏 𝐂𝐥𝐞𝐚𝐧𝐥𝐢𝐧𝐞𝐬𝐬 𝐂𝐡𝐞𝐜𝐤";
+const PANEL_TITLE = "𝐈𝐏 𝐂𝐥𝐞𝐚𝐧 𝐂𝐡𝐞𝐜𝐤";
 
 const parseArgs = (s) =>
   Object.fromEntries(
