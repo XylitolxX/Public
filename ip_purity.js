@@ -1,8 +1,10 @@
 /*
- * Surge 面板：IP 纯净度
+ * Surge Panel: 𝐈𝐏 𝐏𝐮𝐫𝐢𝐭𝐲
  * 数据来源：my.ippure.com
  * 参数：Proxy=策略组或节点（默认 DIRECT）；MarkIP=是否打码 true/false（默认 true）
  */
+
+const PANEL_TITLE = "𝐈𝐏 𝐏𝐮𝐫𝐢𝐭𝐲";
 
 const parseArgs = (s) =>
   Object.fromEntries(
@@ -34,7 +36,6 @@ const get = (url) =>
     )
   );
 
-// 58.246.12.121 -> 58.246.•••.121
 const mask = (ip) => {
   if (ip.includes(".")) {
     const p = ip.split(".");
@@ -44,7 +45,6 @@ const mask = (ip) => {
   return p.length > 4 ? `${p[0]}:${p[1]}:•••:${p[p.length - 1]}` : ip;
 };
 
-// 风险分档：天气 emoji + SF Symbols 图标 + 颜色
 const risk = (s) => {
   if (s < 20) return { dot: "☀️", color: "#34C759", icon: "checkmark.seal" };
   if (s < 40) return { dot: "🌤️", color: "#34C759", icon: "checkmark.shield" };
@@ -77,10 +77,10 @@ const risk = (s) => {
       `风险等级  ${r.dot} ${score}`,
     ].join("\n");
 
-    $done({ title: "IP 纯净度", content, icon: r.icon, "icon-color": r.color });
+    $done({ title: PANEL_TITLE, content, icon: r.icon, "icon-color": r.color });
   } catch (e) {
     $done({
-      title: "IP 纯净度",
+      title: PANEL_TITLE,
       content: "🌫️ 检测失败：" + (e.message || e),
       icon: "xmark.circle",
       "icon-color": "#FF3B30",
