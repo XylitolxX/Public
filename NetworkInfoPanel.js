@@ -1,4 +1,3 @@
-
 /*
  * Surge 网络详情
  * 由@Nebulosa-Cat编写
@@ -195,9 +194,7 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
     }
     const info = JSON.parse(response.data);
     $done({
-      title: getSSID()
-        ? '𝐖𝐢𝐅𝐢'
-        : `𝐂𝐞𝐥𝐥𝐮𝐥𝐚𝐫 𝐃𝐚𝐭𝐚 | ${getCellularInfo()}`,
+      title: getSSID() || `𝐂𝐞𝐥𝐥𝐮𝐥𝐚𝐫 𝐃𝐚𝐭𝐚 | ${getCellularInfo()}`,
       content:
         getIP() +
         `节点IP：${info.query}\n` +
