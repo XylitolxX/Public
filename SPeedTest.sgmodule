@@ -1,0 +1,9 @@
+#!name=𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭 | 𝐒𝐩𝐞𝐞𝐝 𝐓𝐬𝐞𝐭
+#!desc=快速测试下行速率与延迟
+#!category=面板模块
+
+[Panel]
+𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭 | 𝐒𝐩𝐞𝐞𝐝 𝐓𝐬𝐞𝐭 = script-name=𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭 | 𝐒𝐩𝐞𝐞𝐝 𝐓𝐬𝐞𝐭,update-interval=-1
+
+[Script]
+𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭 | 𝐒𝐩𝐞𝐞𝐝 𝐓𝐬𝐞𝐭 = type=generic,script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/SPeedTest.js,argument=title=𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭 | 𝐒𝐩𝐞𝐞𝐝 𝐓𝐬𝐞𝐭&iconfast=bolt&iconmid=hare&iconslow=tortoise&colorlow=#06D6A0&colormid=#FFD166&colorhigh=#EF476F&mb=3
