@@ -10,4 +10,4 @@
 𝐅𝐥𝐮𝐬𝐡 | 𝐃𝐍𝐒 = script-name=𝐅𝐥𝐮𝐬𝐡 | 𝐃𝐍𝐒,update-interval=600
 
 [Script]
-𝐅𝐥𝐮𝐬𝐡 | 𝐃𝐍𝐒 = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/Flush-DNS.js,argument=title={{{TITLE}}}&icon={{{ICON}}}&color={{{COLOR}}}&server=false
+𝐅𝐥𝐮𝐬𝐡 | 𝐃𝐍𝐒 = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/FlushDNS.js,argument=title={{{TITLE}}}&icon={{{ICON}}}&color={{{COLOR}}}&server=false
