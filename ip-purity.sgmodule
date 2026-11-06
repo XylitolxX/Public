@@ -1,8 +1,12 @@
 #!name=IP 纯净度
-#!desc=Surge 面板：显示当前出口 IP、位置、ASN、类型和风险等级
+#!desc=同时检测直连和节点的 IP 纯净度，Proxy 参数填策略组或节点名，填 DIRECT 则只显示直连。
+#!category=网络检测
+#!arguments=Proxy:Proxy,MarkIP:true
+#!arguments-desc=Proxy: 要检测的策略组或节点，默认 Proxy | MarkIP: IP 打码(true/false)，默认 true
+#!system=ios
 
 [Panel]
-IP纯净度 = script-name=IP纯净度,update-interval=600,title=IP 纯净度,content=检测中...,style=info
+IP-Pure = script-name=IP-Pure, title=IP 纯净度, content=刷新中…, style=info, update-interval=300
 
 [Script]
-IP纯净度 = type=generic,timeout=15,script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/ip_purity.js?v=2
+IP-Pure = type=generic, timeout=15, argument=Proxy={{{Proxy}}}&MarkIP={{{MarkIP}}}, script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/ip_purity.js?v=4, script-update-interval=3600
