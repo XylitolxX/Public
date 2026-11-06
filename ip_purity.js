@@ -27,11 +27,11 @@ const mask = (ip) => {
 };
 
 const risk = (s) => {
-  if (s < 20) return { dot: "☀️", color: "#34C759", icon: "checkmark.seal.fill" };
-  if (s < 40) return { dot: "🌤️", color: "#34C759", icon: "checkmark.shield.fill" };
-  if (s < 70) return { dot: "⛅", color: "#FFCC00", icon: "exclamationmark.triangle.fill" };
-  if (s < 85) return { dot: "🌦️", color: "#FF9500", icon: "exclamationmark.shield.fill" };
-  return { dot: "⛈️", color: "#FF3B30", icon: "xmark.shield.fill" };
+  if (s < 20) return { dot: "☀️", color: "#34C759", icon: "checkmark.seal" };
+  if (s < 40) return { dot: "🌤️", color: "#34C759", icon: "checkmark.shield" };
+  if (s < 70) return { dot: "⛅", color: "#FFCC00", icon: "exclamationmark.triangle" };
+  if (s < 85) return { dot: "🌦️", color: "#FF9500", icon: "exclamationmark.shield" };
+  return { dot: "⛈️", color: "#FF3B30", icon: "xmark.shield" };
 };
 
 (async () => {
@@ -62,7 +62,7 @@ const risk = (s) => {
     $done({
       title: "IP 纯净度",
       content: "🌫️ 检测失败：" + (e.message || e),
-      icon: "xmark.circle.fill",
+      icon: "xmark.circle",
       "icon-color": "#FF3B30",
     });
   }
