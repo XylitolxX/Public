@@ -1,0 +1,90 @@
+#!name=𝐒𝐢𝐫𝐢 𝐀𝐈 & 𝐂𝐡𝐚𝐭𝐆𝐏𝐓
+#!desc=Siri、Apple Intelligence、Private Cloud Compute 与 ChatGPT/OpenAI 专用分流（Surge 版）
+#!arguments=POLICY:𝐏𝐫𝐨𝐱𝐲
+#!arguments-desc=POLICY: 填写你配置中的代理策略组名称，默认 𝐏𝐫𝐨𝐱𝐲
+
+[Rule]
+
+# Siri / Apple Intelligence
+DOMAIN-SUFFIX,siri.apple.com,{{{POLICY}}}
+DOMAIN,ropes.apple.com,{{{POLICY}}}
+DOMAIN-SUFFIX,apple-intelligence.apple.com,{{{POLICY}}}
+DOMAIN-SUFFIX,ai.apple.com,{{{POLICY}}}
+DOMAIN-SUFFIX,guzzoni.apple.com,{{{POLICY}}}
+DOMAIN-SUFFIX,smoot.apple.com,{{{POLICY}}}
+DOMAIN-SUFFIX,ls.apple.com,{{{POLICY}}}
+DOMAIN-SUFFIX,apps.mzstatic.com,{{{POLICY}}}
+DOMAIN-SUFFIX,gateway.icloud.com,{{{POLICY}}}
+DOMAIN,probe.icloud.com,{{{POLICY}}}
+DOMAIN,api-siri-prod.apple.com,{{{POLICY}}}
+DOMAIN-SUFFIX,fe2.apple-dns.net,{{{POLICY}}}
+DOMAIN-SUFFIX,icloud-content.com,{{{POLICY}}}
+
+# Apple Intelligence / Private Cloud Compute
+DOMAIN-SUFFIX,pcc.apple.com,{{{POLICY}}}
+DOMAIN-SUFFIX,apple-carry-relay.cloudflare.com,{{{POLICY}}}
+DOMAIN-SUFFIX,apple-relay.apple.com,{{{POLICY}}}
+DOMAIN-SUFFIX,apple-relay.cloudflare.com,{{{POLICY}}}
+DOMAIN-SUFFIX,apple-relay.fastly-edge.com,{{{POLICY}}}
+DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,{{{POLICY}}}
+DOMAIN-SUFFIX,apple-relay.akamaized.net,{{{POLICY}}}
+DOMAIN-SUFFIX,cp4.cloudflare.com,{{{POLICY}}}
+
+# Apple Private Relay
+DOMAIN-SUFFIX,mask-api.icloud.com,{{{POLICY}}}
+DOMAIN-SUFFIX,mask-api.fe.apple-dns.net,{{{POLICY}}}
+DOMAIN-SUFFIX,mask.icloud.com,{{{POLICY}}}
+DOMAIN-SUFFIX,mask.apple-dns.net,{{{POLICY}}}
+DOMAIN-SUFFIX,mask-h2.icloud.com,{{{POLICY}}}
+DOMAIN-SUFFIX,mask-t.apple-dns.net,{{{POLICY}}}
+
+# ChatGPT / OpenAI
+DOMAIN-SUFFIX,chatgpt.com,{{{POLICY}}}
+DOMAIN-SUFFIX,openai.com,{{{POLICY}}}
+DOMAIN-SUFFIX,chat.com,{{{POLICY}}}
+DOMAIN-SUFFIX,oaistatic.com,{{{POLICY}}}
+DOMAIN-SUFFIX,oaiusercontent.com,{{{POLICY}}}
+DOMAIN-SUFFIX,oaistatsig.com,{{{POLICY}}}
+
+# ChatGPT Realtime / WebSocket
+DOMAIN,ws.chatgpt.com,{{{POLICY}}}
+
+# ChatGPT Voice / LiveKit
+DOMAIN-SUFFIX,chatgpt.livekit.cloud,{{{POLICY}}}
+DOMAIN-SUFFIX,host.livekit.cloud,{{{POLICY}}}
+DOMAIN-SUFFIX,turn.livekit.cloud,{{{POLICY}}}
+
+# ChatGPT Login / Authentication
+DOMAIN,cdn.openaimerge.com,{{{POLICY}}}
+DOMAIN,cdn.workos.com,{{{POLICY}}}
+DOMAIN,forwarder.workos.com,{{{POLICY}}}
+DOMAIN,images.workoscdn.com,{{{POLICY}}}
+DOMAIN,setup.workos.com,{{{POLICY}}}
+DOMAIN,workos.imgix.net,{{{POLICY}}}
+DOMAIN,challenges.cloudflare.com,{{{POLICY}}}
+DOMAIN,humb.apple.com,{{{POLICY}}}
+
+# ChatGPT Arkose / Challenge
+DOMAIN,openai-api.arkoselabs.com,{{{POLICY}}}
+DOMAIN-SUFFIX,client-api.arkoselabs.com,{{{POLICY}}}
+
+# OpenAI CDN / Storage
+DOMAIN,chat.openai.com.cdn.cloudflare.net,{{{POLICY}}}
+DOMAIN-SUFFIX,openai.com.cdn.cloudflare.net,{{{POLICY}}}
+DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net,{{{POLICY}}}
+DOMAIN,openaicomproductionae4b.blob.core.windows.net,{{{POLICY}}}
+DOMAIN-SUFFIX,openaicom.imgix.net,{{{POLICY}}}
+DOMAIN-KEYWORD,openaicom-api,{{{POLICY}}}
+DOMAIN,production-openaicom-storage.azureedge.net,{{{POLICY}}}
+DOMAIN-SUFFIX,openaiapi-site.azureedge.net,{{{POLICY}}}
+
+# ChatGPT Auxiliary
+DOMAIN-SUFFIX,ct.sendgrid.net,{{{POLICY}}}
+DOMAIN-SUFFIX,intercom.io,{{{POLICY}}}
+DOMAIN-SUFFIX,intercomcdn.com,{{{POLICY}}}
+DOMAIN,js.stripe.com,{{{POLICY}}}
+
+# ChatGPT Diagnostics
+DOMAIN,o207216.ingest.sentry.io,{{{POLICY}}}
+DOMAIN,o33249.ingest.sentry.io,{{{POLICY}}}
+DOMAIN,rum.browser-intake-datadoghq.com,{{{POLICY}}}
