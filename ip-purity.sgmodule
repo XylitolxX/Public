@@ -1,0 +1,8 @@
+#!name=IP 纯净度
+#!desc=Surge 面板：显示当前出口 IP、位置、ASN、类型和风险等级
+
+[Panel]
+IP纯净度 = script-name=IP纯净度,update-interval=600,title=IP 纯净度,content=检测中...,style=info
+
+[Script]
+IP纯净度 = type=generic,timeout=15,script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/ip_purity.js
