@@ -1,4 +1,4 @@
-#!name=IP 纯净度
+#!name=𝐈𝐏 𝐏𝐮𝐫𝐢𝐭𝐲
 #!desc=节点 IP 纯净度检测，请先在参数内选择策略组或节点。
 #!category=网络检测
 #!arguments=Proxy:DIRECT,MarkIP:true
