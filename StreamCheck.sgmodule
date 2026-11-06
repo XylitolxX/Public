@@ -1,0 +1,10 @@
+#!name=𝐒𝐭𝐫𝐞𝐚𝐦 𝐂𝐡𝐞𝐜𝐤
+#!desc=Netflix, Disney+, YouTube Unlock Detection
+# 更新日期：2026.11.06
+# 版本：3.3
+
+[Panel]
+𝐒𝐭𝐫𝐞𝐚𝐦 𝐂𝐡𝐞𝐜𝐤 = script-name=𝐒𝐭𝐫𝐞𝐚𝐦 𝐂𝐡𝐞𝐜𝐤, title="𝐒𝐭𝐫𝐞𝐚𝐦 𝐂𝐡𝐞𝐜𝐤", content="请刷新面板", update-interval={{{UPDATE_INTERVAL}}}
+
+[Script]
+𝐒𝐭𝐫𝐞𝐚𝐦 𝐂𝐡𝐞𝐜𝐤 = type=generic, timeout=15, script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/StreamCheck.js
