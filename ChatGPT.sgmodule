@@ -1,0 +1,9 @@
+#!name=𝐂𝐡𝐚𝐭𝐆𝐏𝐓
+#!desc=𝐂𝐡𝐚𝐭𝐆𝐏𝐓 Detection
+#!homepage=https://whatshub.top
+
+[Panel]
+𝐂𝐡𝐚𝐭𝐆𝐏𝐓 = script-name=𝐂𝐡𝐚𝐭𝐆𝐏𝐓
+
+[Script]
+𝐂𝐡𝐚𝐭𝐆𝐏𝐓 = type=generic,script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/ChatGPT.js,argument=icon=apple.intelligence&icon-color=#000000
