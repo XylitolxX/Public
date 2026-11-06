@@ -7,9 +7,6 @@
  * 版本：3.4
  */
 
-/**
- * 网络请求封装为 Promise
- */
 class httpMethod {
   static _httpRequestCallback(resolve, reject, error, response, data) {
     if (error) {
@@ -120,7 +117,6 @@ function loadCarrierNames() {
   };
 }
 
-// 获取手机运营商信息
 function getCellularInfo() {
   const radioGeneration = {
     'GPRS': '2.5G',
@@ -176,9 +172,6 @@ function getIP() {
   return info + "\n";
 }
 
-/**
- * 获取 IP 信息
- */
 function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
   httpMethod.get('http://ip-api.com/json').then(response => {
     if (Number(response.status) > 300) {
@@ -224,9 +217,6 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
   });
 }
 
-/**
- * 主要逻辑，程序入口
- */
 (() => {
   const retryTimes = 5;
   const retryInterval = 1000;
