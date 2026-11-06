@@ -9,7 +9,7 @@
 𝐍𝐞𝐭𝐰𝐨𝐫𝐤 𝐈𝐧𝐟𝐨 𝐏𝐚𝐧𝐞𝐥 = title="",content="",style=info,script-name=NetworkInfoPanel.js,update-interval=1
 
 [Script]
-NetworkInfoPanel.js = type=generic,timeout=30,script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/NetworkInfoPanel.js?v=1
+NetworkInfoPanel.js = type=generic,timeout=30,script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/NetworkInfoPanel.js?v=1.1
 
 [Host]
 ip-api.com = 208.95.112.1
