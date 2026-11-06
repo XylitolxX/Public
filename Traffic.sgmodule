@@ -1,0 +1,12 @@
+
+#!name=𝐓𝐫𝐚𝐟𝐟𝐢𝐜
+#!desc=Traffic Statistics
+#!system=ios
+
+[Panel]
+# > 𝐓𝐫𝐚𝐟𝐟𝐢𝐜
+𝐓𝐫𝐚𝐟𝐟𝐢𝐜 = script-name=TrafficStatistics, update-interval=1
+
+[Script]
+# > 𝐓𝐫𝐚𝐟𝐟𝐢𝐜
+TrafficStatistics = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/trafficstatistics.js, argument=icon=bonjour&color=#007aff
