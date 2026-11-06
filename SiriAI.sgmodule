@@ -11,14 +11,24 @@ DOMAIN,ropes.apple.com,{{{POLICY}}}
 DOMAIN-SUFFIX,apple-intelligence.apple.com,{{{POLICY}}}
 DOMAIN-SUFFIX,ai.apple.com,{{{POLICY}}}
 DOMAIN-SUFFIX,guzzoni.apple.com,{{{POLICY}}}
+DOMAIN,guzzoni-apple-com.v.aaplimg.com,{{{POLICY}}}
+DOMAIN,guzzoni-smoot.v.aaplimg.com,{{{POLICY}}}
 DOMAIN-SUFFIX,smoot.apple.com,{{{POLICY}}}
 DOMAIN-SUFFIX,ls.apple.com,{{{POLICY}}}
 DOMAIN-SUFFIX,apps.mzstatic.com,{{{POLICY}}}
 DOMAIN-SUFFIX,gateway.icloud.com,{{{POLICY}}}
 DOMAIN,probe.icloud.com,{{{POLICY}}}
+DOMAIN,pong.icloud.com,{{{POLICY}}}
+DOMAIN,metrics.icloud.com,{{{POLICY}}}
 DOMAIN,api-siri-prod.apple.com,{{{POLICY}}}
+DOMAIN,doh.dns.apple.com,{{{POLICY}}}
 DOMAIN-SUFFIX,fe2.apple-dns.net,{{{POLICY}}}
 DOMAIN-SUFFIX,icloud-content.com,{{{POLICY}}}
+
+# Apple Weather / WeatherKit
+DOMAIN,weatherkit.apple.com,{{{POLICY}}}
+DOMAIN,weather-data.apple.com,{{{POLICY}}}
+DOMAIN,weather-data-origin.apple.com,{{{POLICY}}}
 
 # Apple Intelligence / Private Cloud Compute
 DOMAIN-SUFFIX,pcc.apple.com,{{{POLICY}}}
@@ -37,6 +47,8 @@ DOMAIN-SUFFIX,mask.icloud.com,{{{POLICY}}}
 DOMAIN-SUFFIX,mask.apple-dns.net,{{{POLICY}}}
 DOMAIN-SUFFIX,mask-h2.icloud.com,{{{POLICY}}}
 DOMAIN-SUFFIX,mask-t.apple-dns.net,{{{POLICY}}}
+DOMAIN,mask-boot.icloud.com,{{{POLICY}}}
+DOMAIN,mask-canary.icloud.com,{{{POLICY}}}
 
 # ChatGPT / OpenAI
 DOMAIN-SUFFIX,chatgpt.com,{{{POLICY}}}
