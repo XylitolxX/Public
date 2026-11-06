@@ -1,0 +1,13 @@
+
+#!name=𝐒𝐮𝐫𝐠𝐞 𝐏𝐫𝐨®
+#!desc=显示Surge的启动时间
+# 更新日期：2026.11.06
+# 版本：3.3
+
+[Panel]
+# Surge Pro
+𝐒𝐮𝐫𝐠𝐞 𝐏𝐫𝐨® = script-name=𝐒𝐮𝐫𝐠𝐞 𝐏𝐫𝐨®,update-interval=1
+
+[Script]
+# Surge Pro
+𝐒𝐮𝐫𝐠𝐞 𝐏𝐫𝐨® = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/XylitolxX/Public/main/SurgeProReload.js,argument=icon=paperplane.circle&color=#f6c970
